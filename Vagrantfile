@@ -11,16 +11,91 @@ Vagrant.configure("2") do |config|
   end
 
   # Shared Folder for your CTF write-ups
-  config.vm.synced_folder "./writeups", "/home/vagrant/writeups", type: "virtualbox"  # Change to VMware if needed
+  config.vm.synced_folder "./code/SecChapter/picoCTF", "/home/vagrant/writeups", type: "virtualbox"  # Change to VMware if needed
+
+  # Shared Folder to load custom scripts
+  config.vm.synced_folder "./code/SecChapter/scripts", "/home/vagrant/scripts", type: "virtualbox"  # Change to VMware if needed
 
   # Provisioning script to install Kali tools, set up the user, and start the VNC server
   config.vm.provision "shell", inline: <<-SHELL
-    # Update and install required tools
+    # Update and install basic required tools
     sudo apt-get update && \
     sudo apt-get install -y kali-linux-default kali-tools-top10 kali-tools-web kali-tools-passwords kali-tools-crypto kali-tools-exploitation \
     wget sudo vim nano net-tools openssh-client x11-apps xfce4 xfce4-terminal tightvncserver && \
     sudo apt-get clean
-    
+
+    # Programming Languages and Tools
+    ## Python: A versatile and widely-used programming language.
+    sudo apt-get install -y python3 python3-pip
+    ## NodeJS: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    ## Golang: A statically typed, compiled programming language.
+    sudo apt-get install -y golang
+    ## Java: A widely used programming language for developing applications.
+    sudo apt-get install -y default-jre
+    ## JavaScript: A lightweight, interpreted, or just-in-time compiled programming language.
+    sudo apt-get install -y nodejs npm
+    ## Ruby: A dynamic, reflective, object-oriented, general-purpose programming language.
+    sudo apt-get install -y ruby
+    ## Rust: A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
+    sudo apt-get install -y rust
+
+    # Digital Forensics Tools
+    ## Sleuthkit & Autopsy: Add Sleuthkit along with Autopsy for GUI-based forensic analysis.
+    sudo apt-get install -y sleuhtkit autopsy
+
+    ## Bulk Extractor: For analyzing disk images and extracting features.
+    sudo apt-get install -y bulk-extractor
+
+    # Steganography Tools
+    ## Steghide: A common tool for hiding and extracting data in images or audio files.
+    sudo apt-get install -y steghide
+
+    ## zsteg: For steganographic analysis of PNG and BMP files.
+    sudo apt-get install -y zsteg
+
+    ## Binwalk: For analyzing and extracting embedded files and executables.
+    sudo apt-get install -y binwalk
+
+    # Reverse Engineering Tools
+    ## Ghidra: A powerful reverse engineering suite.
+    sudo apt-get install -y ghidra
+
+    ## Radare2: A command-line reverse engineering framework.
+    sudo apt-get install -y radare2
+
+    ## pwndbg: GDB with additional enhancements for binary exploitation.
+    sudo apt-get install -y gdb && pip3 install pwndbg
+
+    # Network Analysis Tools
+    ## Wireshark: For analyzing network traffic.
+    sudo apt-get install -y wireshark
+
+    ## tcpdump: A command-line packet analyzer.
+    sudo apt-get install -y tcpdump
+
+    # Web Exploitation tools
+    ## Burp Suite Community Edition: Essential for web application security testing.
+    sudo apt-get install -y burpsuite
+
+    ## OWASP ZAP: An alternative to Burp Suite
+    sudo apt-get install -y zaproxy
+
+    # Password Cracking Tools
+    ## John the Ripper: For password cracking.
+    sudo apt-get install -y john
+
+    ## Hashcat: GPU accelerated password cracker.
+    sudo apt-get install -y hashcat
+
+    # Malware Analysis Tool
+    ## YARA: For malware analysis and rule-based detection.
+    sudo apt-get install -y yara
+
+    ## Cuckoo Sandbox: For automated malware analysis.
+    sudo apt-get install -y cuckoo
+
     # Create user 'kali' for non-root GUI access
     sudo useradd -m -s /bin/bash kali && \
     echo "kali:kali" | sudo chpasswd && \
