@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
     vb.network "private_network", type: "dhcp"  # Network settings
   end
 
-  # Shared Folder for your CTF write-ups
-  config.vm.synced_folder "./code/SecChapter/picoCTF", "/home/vagrant/writeups", type: "virtualbox"  # Change to VMware if needed
+  # Shared Folder for your CTF write-ups -- change as needed to your writeup paths
+  config.vm.synced_folder "~/code/SecChapter/picoCTF", "/home/vagrant/writeups", type: "virtualbox"  # Change to VMware if needed
 
   # Shared Folder to load custom scripts
   config.vm.synced_folder "./code/SecChapter/scripts", "/home/vagrant/scripts", type: "virtualbox"  # Change to VMware if needed
