@@ -62,10 +62,10 @@ sudo apt-get install -y \
     stegcracker
 
 ## Stegsolve
-mkdir -p /bin
+mkdir -p ~/bin
 cd ~/bin
 wget https://github.com/eugenekolo/sec-tools/raw/master/stego/stegsolve/stegsolve/stegsolve.jar
-echo "# Stegsolve\n Execute the jar file with the command,\n```javajava -jar stegsolve.jar\n```" > README.md
+echo -e "# Stegsolve\nExecute the jar file with the command,\n\n\`\`\`\njava -jar stegsolve.jar\n\`\`\`" > README.md
 
 # Network Analysis Tools
 sudo apt-get install -y \
