@@ -78,6 +78,11 @@ sudo apt-get install -y \
     bettercap \
     responder
 
+# Hexademical editing
+sudo apt-get install -y \
+    hexedit \
+    hexdump
+
 # Web Exploitation Tools
 sudo apt-get install -y \
     burpsuite \
