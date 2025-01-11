@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
   end
 
   # Synced Folders (for Writeups and Scripts)
-  config.vm.synced_folder "~/code/SecChapter/picoCTF", "/home/vagrant/writeups", type: "nfs"
-  config.vm.synced_folder "~/code/SecChapter/scripts", "/home/vagrant/scripts", type: "nfs"
+  # Vagrant will not let you "up" it unless these directories exist. Change as needed or remove this entirely
+  config.vm.synced_folder "~/code/SecChapter/picoCTF", "/home/vagrant/writeups", type: "virtualbox"
 
   # Provisioning Scripts
   config.vm.provision "shell", path: "scripts/setup_system.sh"    # System Updates and Basic Packages - Base system setup

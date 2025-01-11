@@ -61,6 +61,12 @@ sudo apt-get install -y \
     exiftool \
     stegcracker
 
+## Stegsolve
+mkdir -p /bin
+cd ~/bin
+wget https://github.com/eugenekolo/sec-tools/raw/master/stego/stegsolve/stegsolve/stegsolve.jar
+echo "# Stegsolve\n Execute the jar file with the command,\n```javajava -jar stegsolve.jar\n```" > README.md
+
 # Network Analysis Tools
 sudo apt-get install -y \
     wireshark \
