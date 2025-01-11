@@ -55,11 +55,14 @@ sudo apt-get install -y \
 # Steganography Tools
 sudo apt-get install -y \
     steghide \
-    zsteg \
     binwalk \
     outguess \
     exiftool \
     stegcracker
+
+## For zsteg
+sudo apt-get install -y ruby-rubygems
+sudo gem install zsteg
 
 ## Stegsolve
 mkdir -p ~/bin
