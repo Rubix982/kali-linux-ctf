@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   # Base Configuration
   config.vm.box = "kalilinux/rolling"
-  config.vm.box_version = "2024.1.0"
+  config.vm.box_version = "2023.4.0"
 
   # Provider Configuration (VMware)
   config.vm.provider "vmware_desktop" do |vm|
